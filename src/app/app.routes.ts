@@ -1,0 +1,72 @@
+import { Routes } from '@angular/router';
+import { AddAddressScreenComponent } from './pages/add-address-screen.component';
+import { AddPaymentScreenComponent } from './pages/add-payment-screen.component';
+import { AddressSelectScreenComponent } from './pages/address-select-screen.component';
+import { CartScreenComponent } from './pages/cart-screen.component';
+import { CheckoutScreenComponent } from './pages/checkout-screen.component';
+import { ErrorPageComponent } from './pages/error-page.component';
+import { FavoritesScreenComponent } from './pages/favorites-screen.component';
+import { ForgotPasswordScreenComponent } from './pages/forgot-password-screen.component';
+import { HomeScreenComponent } from './pages/home-screen.component';
+import { LoginScreenComponent } from './pages/login-screen.component';
+import { NotificationsScreenComponent } from './pages/notifications-screen.component';
+import { OnboardingScreen1Component } from './pages/onboarding-screen1.component';
+import { OnboardingScreen2Component } from './pages/onboarding-screen2.component';
+import { OnboardingScreen3Component } from './pages/onboarding-screen3.component';
+import { OrderConfirmationScreenComponent } from './pages/order-confirmation-screen.component';
+import { OrdersScreenComponent } from './pages/orders-screen.component';
+import { OtpVerificationScreenComponent } from './pages/otp-verification-screen.component';
+import { PixPaymentScreenComponent } from './pages/pix-payment-screen.component';
+import { ProductScreenComponent } from './pages/product-screen.component';
+import { ProfileScreenComponent } from './pages/profile-screen.component';
+import { ResetPasswordScreenComponent } from './pages/reset-password-screen.component';
+import { RestaurantScreenComponent } from './pages/restaurant-screen.component';
+import { SearchScreenComponent } from './pages/search-screen.component';
+import { SignupScreenComponent } from './pages/signup-screen.component';
+import { SplashScreenComponent } from './pages/splash-screen.component';
+import { EditProfileScreenComponent } from './pages/edit-profile-screen.component';
+import { HelpScreenComponent } from './pages/help-screen.component';
+import { SettingsScreenComponent } from './pages/settings-screen.component';
+import { OrderDetailScreenComponent } from './pages/order-detail-screen.component';
+import { CategoryResultsScreenComponent } from './pages/category-results-screen.component';
+import { PromoDetailScreenComponent } from './pages/promo-detail-screen.component';
+import { KitchenDashboardComponent } from './pages/kitchen-dashboard.component';
+import { DeliveryDashboardComponent } from './pages/delivery-dashboard.component';
+import { OwnerDashboardComponent } from './pages/owner-dashboard.component';
+
+export const routes: Routes = [
+  { path: '', component: SplashScreenComponent },
+  { path: 'onboarding-1', component: OnboardingScreen1Component },
+  { path: 'onboarding-2', component: OnboardingScreen2Component },
+  { path: 'onboarding-3', component: OnboardingScreen3Component },
+  { path: 'login', component: LoginScreenComponent },
+  { path: 'signup', component: SignupScreenComponent },
+  { path: 'forgot-password', component: ForgotPasswordScreenComponent },
+  { path: 'otp-verification', component: OtpVerificationScreenComponent },
+  { path: 'reset-password', component: ResetPasswordScreenComponent },
+  { path: 'home', component: HomeScreenComponent },
+  { path: 'search', component: SearchScreenComponent },
+  { path: 'notifications', component: NotificationsScreenComponent },
+  { path: 'restaurant/:id', component: RestaurantScreenComponent },
+  { path: 'product/:id', component: ProductScreenComponent },
+  { path: 'orders', component: OrdersScreenComponent },
+  { path: 'order/:id', component: OrderDetailScreenComponent },
+  { path: 'favorites', component: FavoritesScreenComponent },
+  { path: 'profile', component: ProfileScreenComponent },
+  { path: 'edit-profile', component: EditProfileScreenComponent },
+  { path: 'help', component: HelpScreenComponent },
+  { path: 'settings', component: SettingsScreenComponent },
+  { path: 'category/:slug', component: CategoryResultsScreenComponent },
+  { path: 'promo/:id', component: PromoDetailScreenComponent },
+  { path: 'cart', component: CartScreenComponent },
+  { path: 'address-select', component: AddressSelectScreenComponent },
+  { path: 'add-address', component: AddAddressScreenComponent },
+  { path: 'checkout', component: CheckoutScreenComponent },
+  { path: 'order-confirmation', component: OrderConfirmationScreenComponent },
+  { path: 'add-payment', component: AddPaymentScreenComponent },
+  { path: 'pix-payment', component: PixPaymentScreenComponent },
+  { path: 'cozinha', component: KitchenDashboardComponent },
+  { path: 'motoboy', component: DeliveryDashboardComponent },
+  { path: 'dono', component: OwnerDashboardComponent },
+  { path: '**', component: ErrorPageComponent },
+];

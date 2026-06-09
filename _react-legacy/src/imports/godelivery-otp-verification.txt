@@ -1,0 +1,52 @@
+Crie esta tela já estruturada para prototipação no Figma, organizando camadas corretamente e preparando botões e textos clicáveis para serem facilmente conectados no modo Prototype.
+
+Crie uma tela mobile de verificação de código para o aplicativo de restaurante delivery "GoDelivery".
+
+Layout para iPhone 14 (390x844).
+Estilo moderno, clean e profissional.
+
+Fundo:
+Cor creme suave #FFF7ED.
+
+Topo:
+Botão de voltar no canto superior esquerdo.
+Logo GoDelivery centralizada em laranja #F97316.
+
+Título:
+"Verificação de código"
+Fonte bold, cor #7C2D12.
+
+Texto explicativo abaixo:
+"Digite o código de 4 dígitos enviado para seu e-mail."
+Fonte regular, cor #9A3412.
+Centralizado.
+
+No centro da tela:
+4 campos quadrados para código OTP.
+Tamanho 56x56px cada.
+Espaçamento horizontal 12px.
+Fundo branco.
+Borda #FED7AA.
+Cantos arredondados 12px.
+Texto grande, bold, centralizado.
+Estado ativo com borda #F97316.
+
+Abaixo dos campos:
+Texto pequeno:
+"Não recebeu o código?"
+Botão texto clicável:
+"Reenviar código" em #EA580C.
+
+Contador regressivo abaixo:
+"Reenviar em 00:30"
+Fonte pequena, cor #9A3412.
+
+Botão principal grande fixado na parte inferior:
+"Confirmar código"
+Cor #F97316
+Texto branco
+Cantos 16px
+Sombra suave
+
+Layout com bastante respiro e alinhamento central.
+Design consistente com as telas anteriores do GoDelivery.

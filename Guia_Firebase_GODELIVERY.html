@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Passo a Passo • GODELIVERY + Firebase</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --primary: #F97316;
+      --brown: #7C2D12;
+      --orange-dark: #C2410C;
+    }
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+      line-height: 1.6;
+      color: #374151;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #FFF7ED;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 3px solid #FED7AA;
+    }
+    
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #F97316;
+      margin: 0 0 8px 0;
+      letter-spacing: -2px;
+    }
+    
+    .subtitle {
+      font-size: 22px;
+      color: #7C2D12;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+    
+    .tagline {
+      color: #9A3412;
+      font-style: italic;
+      margin: 0;
+    }
+    
+    h1 {
+      color: #7C2D12;
+      font-size: 28px;
+      border-bottom: 2px solid #FED7AA;
+      padding-bottom: 8px;
+      margin-top: 40px;
+    }
+    
+    h2 {
+      color: #C2410C;
+      font-size: 20px;
+      margin-top: 32px;
+    }
+    
+    h3 {
+      color: #EA580C;
+      font-size: 17px;
+      margin-top: 24px;
+    }
+    
+    .step {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 42px;
+      margin-bottom: 14px;
+    }
+    
+    .step:before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 26px;
+      height: 26px;
+      background: #F97316;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+    }
+    
+    .card {
+      background: white;
+      border: 2px solid #FED7AA;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    
+    .code {
+      background: #1F2937;
+      color: #F8FAFC;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.5;
+    }
+    
+    ul, ol {
+      padding-left: 22px;
+    }
+    
+    li {
+      margin-bottom: 6px;
+    }
+    
+    .highlight {
+      background: #FEF3C7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .warning {
+      background: #FEE2E2;
+      border-left: 5px solid #EF4444;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    
+    .success {
+      background: #DCFCE7;
+      border-left: 5px solid #16A34A;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-weight: 600;
+      color: #166534;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      border: 2px solid #FED7AA;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #FED7AA;
+    }
+    
+    th {
+      background: #7C2D12;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #9A3412;
+      border-top: 1px solid #FED7AA;
+      padding-top: 20px;
+    }
+    
+    @media print {
+      body { background: white; margin: 0; }
+      .header { page-break-after: avoid; }
+      h1 { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">GODELIVERY</div>
+    <h1 class="subtitle">Passo a Passo: Migração para Firebase</h1>
+    <p class="tagline">Angular 19 + Firebase Authentication + Firestore</p>
+    <p style="margin-top: 8px; color:#9A3412;">Guia completo para configurar e rodar o app com backend real no Firebase</p>
+  </div>
+
+  <h1>1. Introdução</h1>
+  <p>Este guia explica como configurar o projeto GODELIVERY (versão Angular) para utilizar o <strong>Firebase</strong> como backend. A migração já foi aplicada no código-fonte. Agora você só precisa criar o projeto no Firebase Console e inserir as credenciais.</p>
+  
+  <div class="card">
+    <strong>O que foi migrado:</strong>
+    <ul>
+      <li>Autenticação real (login, cadastro, logout, reset de senha via Firebase Auth)</li>
+      <li>Dados de restaurantes e produtos vindos do Firestore</li>
+      <li>Favoritos salvos por usuário (subcoleção)</li>
+      <li>Pedidos criados e listados a partir do Firestore</li>
+      <li>Seed automático de dados na primeira execução da Home</li>
+    </ul>
+  </div>
+
+  <h1>2. Pré-requisitos</h1>
+  <ul>
+    <li>Node.js 18 ou superior instalado</li>
+    <li>Conta Google (para acessar o Firebase Console)</li>
+    <li>O projeto já deve estar na pasta: <code>C:\Users\luiz_kuhn\Downloads\GODELIVERY (1)</code></li>
+    <li>Dependências já instaladas (<code>npm install</code> já foi executado)</li>
+  </ul>
+
+  <h1>3. Criar e Configurar o Projeto no Firebase</h1>
+
+  <h2>3.1 Acessar o Console</h2>
+  <ol>
+    <li>Abra o navegador e acesse: <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a></li>
+    <li>Faça login com sua conta Google.</li>
+  </ol>
+
+  <h2>3.2 Criar novo projeto</h2>
+  <ol>
+    <li>Clique em <strong>"Criar um projeto"</strong> (ou "Add project").</li>
+    <li>Dê um nome (ex: <strong>godelivery-seunome</strong>).</li>
+    <li>Aceite os termos e clique em Continuar.</li>
+    <li>Desative o Google Analytics por enquanto (pode ativar depois).</li>
+    <li>Clique em <strong>"Criar projeto"</strong> e aguarde (≈ 1 minuto).</li>
+  </ol>
+
+  <h2>3.3 Ativar Authentication (Email/Senha)</h2>
+  <ol>
+    <li>No menu lateral esquerdo, clique em <strong>Authentication</strong>.</li>
+    <li>Clique em "Começar" / "Get started".</li>
+    <li>Vá na aba <strong>Sign-in method</strong>.</li>
+    <li>Clique em <strong>Email/Password</strong> → Ative a opção e clique em <strong>Salvar</strong>.</li>
+  </ol>
+
+  <h2>3.4 Ativar Firestore Database</h2>
+  <ol>
+    <li>No menu lateral, clique em <strong>Firestore Database</strong>.</li>
+    <li>Clique em "Criar banco de dados".</li>
+    <li>Escolha <strong>"Iniciar em modo de teste"</strong> (para desenvolvimento).</li>
+    <li>Selecione uma localização próxima (ex: southamerica-east1 - São Paulo).</li>
+    <li>Clique em Ativar.</li>
+  </ol>
+  
+  <div class="warning">
+    <strong>Atenção:</strong> O modo de teste expira em 30 dias. Depois configure regras de segurança (veja seção 7).
+  </div>
+
+  <h2>3.5 Obter as credenciais do app Web</h2>
+  <ol>
+    <li>No canto superior direito (engrenagem ao lado de "Visão geral do projeto"), clique em <strong>Configurações do projeto</strong>.</li>
+    <li>Role até "Seus apps" e clique no ícone da Web (<strong>&lt;/&gt;</strong>).</li>
+    <li>Dê um apelido (ex: GODELIVERY Web) e clique em <strong>Registrar app</strong>.</li>
+    <li><strong>Copie todo o objeto firebaseConfig</strong> que aparece na tela.</li>
+    <li>Clique em Continuar para o console.</li>
+  </ol>
+
+  <h1>4. Inserir as Credenciais no Projeto Angular</h1>
+
+  <h2>4.1 Editar o arquivo de ambiente</h2>
+  <p>Abra o arquivo com VS Code ou seu editor preferido:</p>
+  <div class="code" style="margin: 12px 0;">C:\Users\luiz_kuhn\Downloads\GODELIVERY (1)\src\environments\environment.ts</div>
+
+  <p>Substitua o conteúdo pelo exemplo abaixo, colando os valores reais do Firebase:</p>
+
+  <div class="code">
+export const environment = {<br>
+&nbsp;&nbsp;production: false,<br>
+&nbsp;&nbsp;firebase: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;apiKey: "AIzaSyA...sua-chave-real...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;authDomain: "seu-projeto-id.firebaseapp.com",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;projectId: "seu-projeto-id",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;storageBucket: "seu-projeto-id.appspot.com",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;messagingSenderId: "123456789012",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;appId: "1:123456789012:web:abc123def4567890"<br>
+&nbsp;&nbsp;}<br>
+};
+  </div>
+
+  <p><strong>Repita o mesmo no arquivo</strong> <code>environment.prod.ts</code>.</p>
+
+  <h1>5. Executar o Projeto</h1>
+  <ol>
+    <li>Abra o terminal na pasta do projeto:
+      <div class="code">cd "C:\Users\luiz_kuhn\Downloads\GODELIVERY (1)"</div>
+    </li>
+    <li>Se ainda não instalou: <code>npm install</code></li>
+    <li>Inicie o servidor:
+      <div class="code">npm start</div>
+    </li>
+    <li>O app abrirá em <strong>http://localhost:4200</strong></li>
+  </ol>
+
+  <div class="success">
+    Na primeira vez que você entrar na tela <strong>/home</strong> (após fazer login), o app verifica se as coleções estão vazias e insere automaticamente os restaurantes e produtos de exemplo.
+  </div>
+
+  <h1>6. Testando os Fluxos Principais</h1>
+  <ul>
+    <li><strong>Cadastro</strong>: /signup → cria usuário no Auth + perfil no Firestore.</li>
+    <li><strong>Login</strong>: usa as credenciais reais do Firebase.</li>
+    <li><strong>Home</strong>: restaurantes carregados do Firestore + favoritos por usuário.</li>
+    <li><strong>Restaurante / Produto</strong>: dados dinâmicos pelo ID.</li>
+    <li><strong>Checkout</strong>: salva o pedido na coleção <code>orders</code>.</li>
+    <li><strong>Meus Pedidos</strong>: lista os pedidos reais do usuário logado.</li>
+    <li><strong>Perfil + Logout</strong>: dados do Firestore + logout real.</li>
+  </ul>
+
+  <h1>7. Regras de Segurança do Firestore (Muito Importante)</h1>
+  <p>Enquanto estiver em modo de teste, qualquer pessoa pode acessar seus dados. Configure regras reais:</p>
+  
+  <ol>
+    <li>No Firebase Console → Firestore Database → aba <strong>Regras</strong>.</li>
+    <li>Substitua por este conteúdo e clique em <strong>Publicar</strong>:</li>
+  </ol>
+
+  <div class="code">
+rules_version = '2';<br>
+service cloud.firestore {<br>
+&nbsp;&nbsp;match /databases/{database}/documents {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match /users/{userId} {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow read, write: if request.auth != null &amp;&amp; request.auth.uid == userId;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match /users/{userId}/favorites/{docId} {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow read, write: if request.auth != null &amp;&amp; request.auth.uid == userId;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match /orders/{orderId} {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow create: if request.auth != null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow read: if request.auth != null &amp;&amp; resource.data.userId == request.auth.uid;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match /restaurants/{docId} { allow read: if true; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match /products/{docId} { allow read: if true; }<br>
+&nbsp;&nbsp;}<br>
+}
+  </div>
+
+  <h1>8. Problemas Comuns</h1>
+  <div class="card">
+    <strong>auth/invalid-api-key ou credenciais erradas</strong><br>
+    Verifique se colou as chaves corretamente no <code>environment.ts</code>. O projectId deve ser idêntico ao do console.
+  </div>
+  <div class="card">
+    <strong>permission-denied</strong><br>
+    Verifique se você está logado e se as regras de segurança permitem a operação. Abra o DevTools (F12) → Console para ver a mensagem detalhada.
+  </div>
+  <div class="card">
+    <strong>Dados não aparecem</strong><br>
+    Abra o Firestore no console. Se as coleções estiverem vazias, delete-as e recarregue a Home para rodar o seed novamente.
+  </div>
+
+  <h1>9. Deploy no Firebase Hosting (Opcional - Bônus)</h1>
+  <ol>
+    <li>Instale o Firebase CLI (uma vez):<br><code>npm install -g firebase-tools</code></li>
+    <li>Faça login: <code>firebase login</code></li>
+    <li>Inicialize: <code>firebase init hosting</code> (escolha seu projeto, public dir = dist/godelivery, SPA rewrites = yes)</li>
+    <li>Build: <code>npm run build</code></li>
+    <li>Deploy: <code>firebase deploy --only hosting</code></li>
+  </ol>
+  <p>Seu app ficará disponível em: <strong>https://seu-projeto-id.web.app</strong></p>
+
+  <h1>10. Resumo Rápido</h1>
+  <table>
+    <tr><th>Passo</th><th>Ação</th></tr>
+    <tr><td>1</td><td>Criar projeto no Firebase Console</td></tr>
+    <tr><td>2</td><td>Habilitar Authentication (Email/Password)</td></tr>
+    <tr><td>3</td><td>Habilitar Firestore Database</td></tr>
+    <tr><td>4</td><td>Colar config no environment.ts + .prod.ts</td></tr>
+    <tr><td>5</td><td>npm start</td></tr>
+    <tr><td>6</td><td>Cadastrar usuário e testar os fluxos</td></tr>
+    <tr><td>7</td><td>(Opcional) Configurar regras + Deploy Hosting</td></tr>
+  </table>
+
+  <div class="success" style="font-size: 18px; text-align: center; margin-top: 30px;">
+    Parabéns! Seu GODELIVERY agora está 100% integrado com Firebase.
+  </div>
+
+  <div class="footer">
+    Documento gerado para o Projeto Blueberry • Junho 2026<br>
+    Qualquer dúvida consulte também o arquivo <strong>README.md</strong> na raiz do projeto.
+  </div>
+
+</body>
+</html>

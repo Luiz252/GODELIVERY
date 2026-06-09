@@ -1,0 +1,53 @@
+Crie esta tela já estruturada para prototipação no Figma, organizando camadas corretamente e preparando botões e cards clicáveis para serem facilmente conectados no modo Prototype.
+
+Crie uma tela mobile de Home para aplicativo de restaurante delivery "GoDelivery".
+
+Layout para iPhone 14 (390x844).
+Estilo moderno, clean e profissional.
+
+Fundo:
+Cor creme suave #FFF7ED.
+
+Topo da tela:
+- Saudação: "Olá, João" (bold, cor #7C2D12)
+- Campo de busca horizontal:
+   Placeholder: "Busque por pratos ou restaurantes"
+   Ícone de lupa à esquerda
+   Fundo branco, borda #FED7AA, cantos arredondados 12px
+- Ícone de notificações no canto direito
+
+Banner promocional:
+- Carrossel horizontal
+- Imagens de promoções com cantos arredondados
+- Ex.: "20% OFF em pizzas hoje!"
+
+Categorias (scroll horizontal):
+- Cards pequenos com ícone e nome
+- Exemplos: Pizza, Hambúrguer, Sushi, Bebidas
+- Fundo branco, sombra leve, cantos arredondados
+
+Lista de restaurantes/destaques (scroll vertical):
+Para cada card:
+- Imagem do restaurante / prato em destaque
+- Nome em bold
+- Avaliação ⭐ (ex.: 4,8)
+- Tempo de entrega estimado
+- Taxa de entrega
+- Botão de Favoritar (ícone coração)
+- Card com fundo branco, sombra leve e cantos arredondados
+
+Bottom Navigation (fixo):
+- Home (ativo, ícone laranja #F97316)
+- Pedidos
+- Favoritos
+- Perfil
+- Ícones modernos e consistentes
+
+Botões e cards clicáveis para prototipação:
+- Categoria → lista de produtos
+- Card restaurante → página de restaurante
+- Banner promocional → detalhes da promoção
+- Favoritar → toggle
+
+Layout com bastante respiro, uso de cores consistentes e hierarquia visual clara.
+Design profissional, pronto para portfólio e linkagem no Figma.
